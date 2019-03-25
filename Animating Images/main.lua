@@ -1,3 +1,7 @@
+
+
+
+
 display.setStatusBar(display.HiddenStatusBar)
 
 scrollspeed = 3
