@@ -27,7 +27,7 @@ local heart1
 local heart2
 local heart3
 
-local score = 0
+local score = -1
 local scoreImage
 local scoreText
 
@@ -61,7 +61,7 @@ scoreImage.y = display.contentHeight* 1 / 7
 
 score = score + 1 
 
-scoreText = display.newText( score, display.contentWidth/2, display.contentHeight/3, nil, 50)
+scoreText = display.newText( score, display.contentWidth/3, display.contentHeight/8, nil, 50)
 
 
 equals = display.newImageRect("Images/T.png", 100, 100)
@@ -158,6 +158,7 @@ local function NumericFieldListener( event )
 			correctObject.isVisible = true
 			score = score + 1
 			ResetTimer()
+			scoreText.text = score .. ""
 
 			timer.performWithDelay(2000, HideCorrect) 
 		else
@@ -166,6 +167,7 @@ local function NumericFieldListener( event )
 			heart1.isVisible = false
 			lives = lives - 1
 			ResetTimer()
+
 		end
 	end
 end
@@ -188,6 +190,7 @@ local function UpdateTime()
 		elseif ( lives == 0)  then
 			heart3.isVisible = false
 			GameOver.isVisible = true
+			numericField.isVisible = false
 		end
 	end
 end
